@@ -1,7 +1,7 @@
 <template>
   <ul v-if="pokemonsList.length">
-    <li v-for="(pokemon, index) in pokemonsList" v-bind:key="index">
-      <img :src="pokemon.image" alt="" />
+    <li v-for="(pokemon, index) in pokemonsList.sort((a, b) => a.order - b.order)" v-bind:key="index">
+      <img :src="pokemon.image" :alt="pokemon.name" />
       <div class="profile">
         <h2>{{ pokemon.name }}</h2>
         <div class="stats">
@@ -36,7 +36,6 @@ ul {
   flex-direction: column;
   width: 100%;
   gap: 20px 12px;
-  justify-content: space-between;
   padding-bottom: 40px;
 }
 li {
@@ -45,8 +44,16 @@ li {
   border: 2px solid red;
   border-radius: 8px;
   padding: 20px 0;
-  box-shadow: 0px 0px 12px 2px red;
+  box-shadow: 0px 0px 10px 2px red;
   background-color: white;
+  transition: 0.5s;
+  animation: show_right ease 1s;
+  display: flex;
+  flex-direction: column;
+}
+li:hover {
+  box-shadow: 0px 0px 14px 2px red;
+  scale: 1.01;
 }
 .profile {
   padding: 0 20px;
@@ -85,9 +92,19 @@ li img {
   ul {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
+
   li {
     width: calc(90% / 3);
+  }
+}
+@keyframes show_right {
+  0% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(0px);
   }
 }
 </style>

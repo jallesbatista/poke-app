@@ -4,7 +4,7 @@
       <nav>
         <a href="#"><h1>PokeSearch</h1></a>
         <form class="input-group">
-          <input placeholder="Buscar pokemon..." class="input-default" type="text" v-model="search" name="name" />
+          <input placeholder="Search pokemon..." class="input-default" type="text" v-model="search" name="name" />
           <button class="btn-primary btn-search" type="submit" v-on:click.prevent="searchPokemon">
             <img :src="searchIcon" alt="Lupe" />
           </button>
@@ -43,7 +43,9 @@ header {
   padding: 12px 0;
   background-color: white;
   display: flex;
-  box-shadow: 4px 0px 12px black;
+  box-shadow: 0px 0px 12px black;
+  animation: show_up 1s ease;
+  z-index: 3;
 }
 nav {
   height: 100%;
@@ -84,6 +86,15 @@ h1 {
   }
   nav .input-group {
     max-width: 220px;
+  }
+}
+
+@keyframes show_up {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 </style>
