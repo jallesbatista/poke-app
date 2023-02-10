@@ -113,6 +113,7 @@ video {
   font-family: "Inter", sans-serif;
   vertical-align: baseline;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -132,6 +133,7 @@ section {
 
 body {
   line-height: 1;
+  background-color: #a3a3a31c;
 }
 
 ol,
