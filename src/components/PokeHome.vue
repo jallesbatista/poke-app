@@ -130,7 +130,7 @@ export default {
 
 <style>
 main {
-  margin-top: 120px;
+  margin-top: 130px;
 }
 
 .nothing-message {

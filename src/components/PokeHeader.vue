@@ -2,7 +2,10 @@
   <header>
     <div class="container">
       <nav>
-        <a href="#"><h1>PokeSearch</h1></a>
+        <a href="#"
+          ><img :src="require('@/assets/logo.png')" alt="Logo" />
+          <h1>PokeSearch</h1></a
+        >
         <form class="input-group">
           <input placeholder="Search pokemon..." class="input-default" type="text" v-model="search" name="name" />
           <button class="btn-primary btn-search" type="submit" v-on:click.prevent="searchPokemon">
@@ -55,6 +58,13 @@ nav {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+}
+nav a img {
+  width: 32px;
+}
+nav a {
+  display: flex;
+  align-items: center;
 }
 .input-group input {
   padding: 12px 60px 12px 6px;
