@@ -99,6 +99,12 @@ li img {
   }
 
   li {
+    width: calc(90% / 2);
+  }
+}
+
+@media (min-width: 780px) {
+  li {
     width: calc(90% / 3);
   }
 }
