@@ -132,6 +132,7 @@ export default {
 main {
   margin-top: 120px;
 }
+
 .nothing-message {
   width: 90%;
   font-size: 1.4rem;

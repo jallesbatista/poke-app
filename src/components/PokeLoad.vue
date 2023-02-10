@@ -25,6 +25,7 @@ export default {
   padding-bottom: 80px;
   animation: show_slowly 1s ease;
 }
+
 .load div {
   max-width: 500px;
 }

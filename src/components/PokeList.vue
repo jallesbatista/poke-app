@@ -38,6 +38,7 @@ ul {
   gap: 20px 12px;
   padding-bottom: 40px;
 }
+
 li {
   min-width: 220px;
   height: 320px;
@@ -51,6 +52,7 @@ li {
   display: flex;
   flex-direction: column;
 }
+
 li:hover {
   box-shadow: 0px 0px 14px 2px red;
   scale: 1.01;
@@ -83,6 +85,7 @@ li:hover {
 .profile h2::first-letter {
   text-transform: capitalize;
 }
+
 li img {
   width: 100%;
   height: 50%;
