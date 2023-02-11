@@ -3,10 +3,6 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import TestPage from "./components/TestPage.vue";
-// import FormTodo from "./components/FormTodo.vue";
-// import CommentsTodo from "./components/CommentsTodo.vue";
 import PokeHome from "./components/PokeHome.vue";
 export default {
   name: "app",
@@ -17,10 +13,6 @@ export default {
 </script>
 
 <style>
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 /* RESET CSS */
 html,
 button,
@@ -113,6 +105,7 @@ video {
   font-family: "Inter", sans-serif;
   vertical-align: baseline;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -132,6 +125,7 @@ section {
 
 body {
   line-height: 1;
+  background-color: #a3a3a31c;
 }
 
 ol,
@@ -164,34 +158,39 @@ table {
   margin: 0 auto;
   max-width: 1200px;
 }
+
 .input-group {
   display: flex;
   align-items: center;
   position: relative;
   width: 100%;
 }
+
 .input-group input {
   width: 100%;
   padding: 12px;
 }
 
 button {
-  transition: 0.5s;
+  transition: 0.3s;
   cursor: pointer;
+}
+
+button:active {
+  scale: 0.9;
 }
 
 .btn-search {
   position: absolute;
   right: 10px;
 }
-.btn-search:active {
-  scale: 0.9;
-}
+
 .btn-primary {
   background-color: white;
   border-radius: 4px;
   padding: 4px;
 }
+
 .input-default {
   border-radius: 8px;
   outline: none;

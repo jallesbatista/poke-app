@@ -36,11 +36,7 @@ export default {
       });
     },
   },
-  watch: {
-    search(val) {
-      console.log(val);
-    },
-  },
+  watch: {},
 };
 </script>
 
@@ -113,7 +109,17 @@ nav a {
   background-color: #b30000;
   color: white;
   font-weight: 500;
+  border: 2px solid #b30000;
+  transition: 0.5s;
 }
+.input-group input:focus {
+  background-color: #e60000;
+}
+.input-group input::placeholder {
+  color: white;
+  font-weight: 400;
+}
+
 h1 {
   font-weight: 700;
   font-size: 1.5rem;
@@ -133,6 +139,15 @@ h1 {
   header[top-position] .header-wrapper {
     height: 80px;
     padding: 0px;
+  }
+}
+
+@keyframes show_up {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 

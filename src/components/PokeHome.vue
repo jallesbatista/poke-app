@@ -1,5 +1,5 @@
 <template>
-  <PokeHeader v-on:search-pokemon="searchPokemon" />
+  <PokeHeader v-on:search-pokemon="searchPokemonSpecies" />
   <main>
     <div class="container">
       <div class="nothing-message" v-if="pokemons.length <= 0 && !load && search">
@@ -7,18 +7,27 @@
       </div>
       <PokeList v-if="pokemons.length" :pokemons="pokemons" />
     </div>
+    <PokeLoad v-if="load" />
   </main>
 </template>
 
 <script>
 import instance from "@/server/axios";
 import PokeHeader from "./PokeHeader.vue";
+import PokeList from "./PokeList.vue";
+import PokeLoad from "./PokeLoad.vue";
+
+import { toast } from "vue3-toastify";
+
 export default {
   components: {
     PokeHeader,
+    PokeList,
+    PokeLoad,
   },
   data() {
     return {
+      pokemonsNames: [],
       pokemons: [],
       load: false,
       search: "",
@@ -47,10 +56,10 @@ export default {
     async searchPokemonEvoChain(url) {
       this.load = true;
       try {
-        const response = await instance.get(`/pokemon/${search.toLowerCase()}`);
-        console.log(response);
+        const response = await instance.get(url);
         return response;
       } catch (error) {
+        toast.error(error.response.data);
         console.log(error);
       }
       this.load = false;
@@ -96,6 +105,7 @@ export default {
           image: data.sprites.other.dream_world.front_default,
           order: data.order,
           name: data.name,
+          image2: data.sprites.other["official-artwork"].front_default,
         };
 
         data.stats.forEach(({ base_stat, stat }) => {
@@ -136,8 +146,9 @@ export default {
 
 <style>
 main {
-  margin-top: 20px;
+  margin-top: 140px;
 }
+
 .nothing-message {
   width: 90%;
   font-size: 1.4rem;
@@ -145,6 +156,24 @@ main {
   font-weight: 600;
   text-align: center;
   padding-left: 20px;
-  margin-top: 80px;
+  margin-top: 200px;
+  animation: show_right ease 1s;
+}
+
+@media (min-width: 425px) {
+  main {
+    margin-top: 110px;
+  }
+}
+
+@keyframes show_right {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
 </style>
