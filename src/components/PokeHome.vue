@@ -2,7 +2,9 @@
   <PokeHeader v-on:search-pokemon="searchPokemonSpecies" />
   <main>
     <div class="container">
-      <div class="nothing-message" v-if="pokemons.length <= 0 && !load">Nothing here yet... : (</div>
+      <div class="nothing-message" v-if="pokemons.length <= 0 && !load && search">
+        Nothing around here yet... Search for another pokemon :)
+      </div>
       <PokeList v-if="pokemons.length" :pokemons="pokemons" />
     </div>
     <PokeLoad v-if="load" />
@@ -28,11 +30,13 @@ export default {
       pokemonsNames: [],
       pokemons: [],
       load: false,
+      search: "",
     };
   },
   methods: {
     async searchPokemonSpecies({ search }) {
       if (search && typeof search === "string") {
+        this.search = search;
         this.load = true;
         this.pokemons = [];
         this.pokemonsNames = [];
@@ -101,6 +105,7 @@ export default {
           image: data.sprites.other.dream_world.front_default,
           order: data.order,
           name: data.name,
+          image2: data.sprites.other["official-artwork"].front_default,
         };
 
         data.stats.forEach(({ base_stat, stat }) => {
@@ -124,24 +129,41 @@ export default {
       },
       deep: true,
     },
+    pokemons: {
+      handler() {
+        const header = document.querySelector("header");
+        if (this.search) {
+          header.setAttribute("top-position", true);
+        } else {
+          header.removeAttribute("top-position");
+        }
+      },
+      deep: true,
+    },
   },
 };
 </script>
 
 <style>
 main {
-  margin-top: 130px;
+  margin-top: 140px;
 }
 
 .nothing-message {
   width: 90%;
   font-size: 1.4rem;
-  color: #0000005e;
+  color: grey;
   font-weight: 600;
   text-align: center;
   padding-left: 20px;
   margin-top: 200px;
   animation: show_right ease 1s;
+}
+
+@media (min-width: 425px) {
+  main {
+    margin-top: 110px;
+  }
 }
 
 @keyframes show_right {
