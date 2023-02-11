@@ -84,6 +84,7 @@ header[top-position] .header-wrapper {
   max-width: none;
   padding: 20px 0px;
 }
+
 nav {
   height: 100%;
   flex-direction: column;
@@ -93,6 +94,7 @@ nav {
   align-items: center;
   gap: 20px;
 }
+
 header[top-position] nav {
   gap: 8px;
 }
@@ -100,6 +102,7 @@ header[top-position] nav {
 nav a img {
   width: 32px;
 }
+
 nav a {
   display: flex;
   align-items: center;
@@ -125,6 +128,7 @@ h1 {
   font-size: 1.5rem;
   color: #b30000;
 }
+
 @media (min-width: 425px) {
   header[top-position] nav {
     flex-direction: row;
@@ -133,6 +137,7 @@ h1 {
   header[top-position] nav .input-group {
     max-width: 300px;
   }
+
   header[top-position] {
     height: 80px;
   }
