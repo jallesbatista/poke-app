@@ -1,7 +1,7 @@
 <template>
   <ul v-if="pokemonsList.length">
     <li v-for="(pokemon, index) in pokemonsList.sort((a, b) => a.order - b.order)" v-bind:key="index">
-      <img :src="pokemon.image" :alt="pokemon.name" />
+      <img :src="pokemon.image || pokemon.image2" :alt="pokemon.name" />
       <div class="profile">
         <h2>{{ pokemon.name }}</h2>
         <div class="stats">
