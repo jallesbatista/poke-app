@@ -73,11 +73,13 @@ header .header-wrapper {
   align-items: center;
   gap: 20px;
   margin: 0 auto;
+  transform: translateY(-50px);
   padding: 0px 20px;
   z-index: 3;
   transition: 0.5s;
 }
 header[top-position] .header-wrapper {
+  transform: translateY(0px);
   width: 100%;
   border-radius: 0px;
   height: 110px;
