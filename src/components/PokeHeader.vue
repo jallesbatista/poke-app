@@ -49,13 +49,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(0 0 0 / 8%);
+  background-color: #a3a3a31c;
   transition: 0.5s;
   z-index: 999;
 }
 
 header[top-position] {
-  background-color: transparent;
   height: 110px;
   justify-content: inherit;
   align-items: inherit;
@@ -66,16 +65,15 @@ header .header-wrapper {
   box-shadow: 0px 0px 12px black;
   width: 90%;
   transition: 1s;
-  margin-top: -100px;
   border-radius: 8px;
   height: 200px;
   max-width: 500px;
   align-items: center;
   gap: 20px;
   margin: 0 auto;
-  transform: translateY(-50px);
   padding: 0px 20px;
   z-index: 3;
+  animation: show_up 0.5s ease forwards;
   transition: 0.5s;
 }
 header[top-position] .header-wrapper {
@@ -85,6 +83,7 @@ header[top-position] .header-wrapper {
   height: 110px;
   max-width: none;
   padding: 20px 0px;
+  animation: show_down 0.5s ease;
 }
 nav {
   height: 100%;
@@ -146,18 +145,20 @@ h1 {
 
 @keyframes show_up {
   0% {
-    transform: translateY(-20px);
+    transform: translateY(0px);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(-50px);
   }
 }
 
-@keyframes show_up {
+@keyframes show_down {
   0% {
-    transform: translateY(-20px);
+    opacity: 0;
+    transform: translateY(20px);
   }
   100% {
+    opacity: 1;
     transform: translateY(0px);
   }
 }
